@@ -8,7 +8,7 @@ import { XMLParser } from "fast-xml-parser";
  */
 class FightBackNewsFeed extends AbstractFeed {
     constructor() {
-        super({
+        super("Fight Back News", {
             host : "www.fightbacknews.org",
             path : "/feed.xml"
         });
