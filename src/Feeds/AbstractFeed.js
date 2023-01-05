@@ -1,11 +1,11 @@
-import http from "node:http";
-import Article from "../Article.js";
+import https from "node:https";
 import Publisher from "../Publisher.js"
 
 class AbstractFeed {
     URL = null
     #OPTIONS = null
     name = null
+    debug = false
 
     /**
      * Constructor
@@ -17,7 +17,7 @@ class AbstractFeed {
             method: "GET",
             headers: {
                 "User-Agent": "communist-content-aggregator/" + process.env.npm_package_version
-            }
+            },
         }, options)
 
         if (!this.#OPTIONS.host)
@@ -41,7 +41,7 @@ class AbstractFeed {
      * @returns {string} A tag name of the feed
      */
     get_tag_name() {
-        return this.name.toLowerCase().replace("/[^\w\s]/", "").split(" ", "-")
+        return this.name.toLowerCase().replace("/[^\w\s]/", "").replace(" ", "-")
     }
 
     /**
@@ -67,15 +67,29 @@ class AbstractFeed {
    #make_request(options)
     {
         return new Promise((resolve, reject) => {
-            http.request(options, (response) => {
+            https.request(options, (response) => {
                 let chunked = ""
                 response.setEncoding('utf8');
 
+                if (this.debug)
+                {
+                    console.log("\x1b[36m%s\x1b[0m", "=== RESPONSE DATA ===")
+                    console.log("\x1b[36m%s\x1b[0m", "Status Code: " + response.statusCode)
+                    console.log("\x1b[36m%s\x1b[0m", "Headers: " + JSON.stringify(response.headers, null, 4))
+                }
                 response.on('data', (chunk) => {
+                    if (this.debug)
+                    {
+                        console.log("Data Obtained: " + chunk);
+                    }
                     chunked += chunk
                 });
 
                 response.on('end', () => {
+                    if (this.debug)
+                    {
+                        console.log("Resolving request with data")
+                    }
                     resolve(chunked)
                 });
 
