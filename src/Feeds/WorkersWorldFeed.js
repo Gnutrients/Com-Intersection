@@ -1,3 +1,4 @@
+import Publisher from "../Publisher.js";
 import AbstractFeed from "./AbstractFeed.js";
 
 /**
@@ -7,7 +8,7 @@ import AbstractFeed from "./AbstractFeed.js";
  */
 class WorkersWorldFeed extends AbstractFeed {
     constructor() {
-        super({
+        super("Workers World", {
             host : "www.workers.org",
             path : "/feed",
             headers : {
@@ -18,7 +19,7 @@ class WorkersWorldFeed extends AbstractFeed {
     }
 
     parse_response(data) {
-        return data;
+        return new Publisher([]);
     }
 }
 
