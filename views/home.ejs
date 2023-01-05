@@ -17,40 +17,46 @@
 </head>
 <body>
     <h1>Communist Content Aggregator</h1>
-    <h2>Publishers</h2>
-    <%- include("publishers-available-block", { publishers_available : publishers_available }); %>
     <% if (publishers.length) { %>     
         <div class="publisher-cards">
             <!-- publisher Cards here -->
             <% publishers.forEach((publisher) => { %>
                 <div class="publisher-card">
-                    <h3 class="publisher-card-title">
-                        <%-publisher.options.title%>
-                    </h3>
-                    <a href="<%=publisher.options.link%>" aria-label="Visit <%=publisher.options.title%>'s website">
-                        <i class="fa fa-link" aria-hidden="true"></i>
-                    </a>
-                    <p class="publisher-card-description"><%-publisher.options.description%></p> 
-                    <% if (publisher.articles.length) { %>
-                        <div class="publisher-articles">
-                        <% publisher.articles.forEach((article)=> { %>
-                            <article class="publisher-article">
-                                <h3 class="publisher-article-title"><%=article.title%></h3> 
-                                <a 
-                                    href="<%=article.link%>" 
-                                    class="publisher-article-link" 
-                                    aria-label="Read article on <%=publisher.options.title%>'s website"
-                                >
-                                    <i class="fa fa-link" aria-hidden="true"></i>
-                                </a>
-                                <div class="publisher-article-text">
-                                    <div class="publisher-article-teaser-text"><%-article.teaser_text%><span class="teaser-text-ellipsis">...</span></div>
-                                    <div class="publisher-article-body hidden"><%-article.body%></div>
-                                </div>
-                            </article>
-                            <% }) %>
+                    <div class="publisher-card-inner">
+                        <div class="publisher-card-information">
+                            <h3 class="publisher-card-title">
+                                <%-publisher.options.title%>
+                            </h3>
+                            <a 
+                                aria-label="Visit <%=publisher.options.title%>'s website"
+                                href="<%=publisher.options.link%>"
+                                target="_blank"
+                            >
+                                <i class="fa fa-link" aria-hidden="true"></i>
+                            </a>                        
                         </div>
-                    <% } %>
+                        <!-- <p class="publisher-card-description"><%-publisher.options.description%></p>  -->
+                        <% if (publisher.articles.length) { %>
+                            <div class="publisher-articles">
+                            <% publisher.articles.forEach((article)=> { %>
+                                <article class="publisher-article" aria-label="<%=article.title%>">
+                                    <a 
+                                        aria-label="Read article on <%=publisher.options.title%>'s website"
+                                        class="publisher-article-link" 
+                                        href="<%=article.link%>"
+                                        target="_blank"
+                                    >
+                                        <%=article.title%>
+                                    </a>
+                                    <div class="publisher-article-text">
+                                        <!-- <div class="publisher-article-teaser-text"><%-article.teaser_text%><span class="teaser-text-ellipsis">...</span></div> -->
+                                        <!-- <div class="publisher-article-body hidden"><%-article.body%></div> -->
+                                    </div>
+                                </article>
+                                <% }) %>
+                            </div>
+                        <% } %>
+                    </div>
                 </div>
             <% }) %>
             <!-- End Feed Cards-->
@@ -58,5 +64,6 @@
     <% } %>
 </body>
 <footer>
+    <p>This is an open source website. Use </p>
 </footer>
 </html>
