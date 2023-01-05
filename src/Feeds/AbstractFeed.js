@@ -80,7 +80,7 @@ class AbstractFeed {
                 response.on('data', (chunk) => {
                     if (this.debug)
                     {
-                        console.log("Data Obtained: " + chunk);
+                        console.log("Data Obtained!");
                     }
                     chunked += chunk
                 });
@@ -89,6 +89,7 @@ class AbstractFeed {
                     if (this.debug)
                     {
                         console.log("Resolving request with data")
+                        console.log(chunked)
                     }
                     resolve(chunked)
                 });

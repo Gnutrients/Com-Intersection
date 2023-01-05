@@ -31,7 +31,7 @@ class FightBackNewsFeed extends AbstractFeed {
             description : parsed.rss.channel.description,
             language    : parsed.rss.channel.language,
             link        : parsed.rss.channel.link,
-            title       : parsed.rss.channel.title,
+            title       : this.name,
         })
     }
 }
