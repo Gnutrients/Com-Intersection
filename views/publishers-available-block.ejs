@@ -2,8 +2,8 @@
     <!-- Feed Names Here -->
     <% if (publishers_available.length) { %>
         <h3>Publishers Available</h3>
-        <% publishers_available.forEach(publisher_name => { %>
-            <div class="publisher-name"><%=publisher_name%></div>
+        <% publishers_available.forEach(publisher_segment => { %>
+            <a href="#<%=publisher_segment[1]%>" class="publisher-name"><%=publisher_segment[0]%></a>
         <% }) %>    
     <% } else { %>
         <h3>No Publishers Available</h3>
