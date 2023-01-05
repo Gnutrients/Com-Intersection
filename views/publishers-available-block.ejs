@@ -1,0 +1,12 @@
+<div class="publishers-available">
+    <!-- Feed Names Here -->
+    <% if (publishers_available.length) { %>
+        <h3>Publishers Available</h3>
+        <% publishers_available.forEach(publisher_name => { %>
+            <div class="publisher-name"><%=publisher_name%></div>
+        <% }) %>    
+    <% } else { %>
+        <h3>No Publishers Available</h3>
+    <% } %>
+    <!-- End Feed Names -->
+</div>
