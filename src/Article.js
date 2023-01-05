@@ -1,4 +1,5 @@
 class Article {
+    teaser_text_length = 280;
     /**
      * This class contains information about a single Article
      * 
@@ -24,6 +25,12 @@ class Article {
         {
             this.date = new Date(this.date)
         }
+
+        this.teaser_text = this.create_teaser_text(body)
+    }
+
+    create_teaser_text(text) {
+        return text.substring(0, this.teaser_text_length)
     }
 }
 
