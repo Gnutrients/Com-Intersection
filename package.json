@@ -4,6 +4,7 @@
   "description": "Aggregator for content, curated for communists",
   "main": "index.js",
   "scripts": {
+    "start": "node index.js",
     "test": "test"
   },
   "keywords": [
