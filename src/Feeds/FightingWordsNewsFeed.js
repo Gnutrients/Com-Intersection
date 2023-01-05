@@ -1,6 +1,7 @@
 import AbstractFeed from "./AbstractFeed.js";
 
-class FightBackNewsFeed extends AbstractFeed {
+class FightingWordsNewsFeed extends AbstractFeed {
+
     constructor() {
         // super("www.fightbacknews.org");
     }
@@ -10,4 +11,4 @@ class FightBackNewsFeed extends AbstractFeed {
     }
 }
 
-export default new FightBackNewsFeed();
+export default new FightingWordsNewsFeed();
