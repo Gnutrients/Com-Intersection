@@ -2,8 +2,6 @@ import express from "express"
 
 // Importing our feeds
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
-import WorkersWorldFeed from "./src/Feeds/WorkersWorldFeed.js"
-// import FightingWordsNewsFeed from "./src/Feeds/FightingWordsNewsFeed.js"
 
 const app = express()
 const port = 80
