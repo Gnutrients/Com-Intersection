@@ -30,13 +30,18 @@ class AbstractFeed {
      */
     async obtain_feed_data()
     {
-        return this.parse_response(await this.#make_request());
+        return this.parse_response(await this.#make_request(this.#OPTIONS));
     }
 
-   #make_request()
+    /**
+     * Main request making function of a Feed.
+     *
+     * @returns {Promise} Resolves with data from the request. Rejects if there is an issue with the request
+     */
+   #make_request(options)
     {
         return new Promise((resolve, reject) => {
-            http.request(this.#OPTIONS, (response) => {
+            http.request(options, (response) => {
                 let chunked = "";
                 response.setEncoding('utf8');
 
