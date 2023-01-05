@@ -6,6 +6,14 @@ body {
     font-size: 20px;
 }
 
+
+@media screen and (min-width: 992px) {
+    .publisher-articles {
+        padding-left: 8em;
+        padding-right: 8em;
+    }
+}
+
 .publisher-card-title,
 .publisher-article-title {
     display: inline-block;
