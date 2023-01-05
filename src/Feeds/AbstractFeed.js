@@ -1,4 +1,6 @@
 import http from "node:http";
+import Article from "../Article.js";
+import Publisher from "../Publisher.js"
 
 class AbstractFeed {
     URL = null;
@@ -33,7 +35,14 @@ class AbstractFeed {
      */
     async obtain_feed_data()
     {
-        return this.parse_response(await this.#make_request(this.#OPTIONS));
+        const response = this.parse_response(await this.#make_request(this.#OPTIONS));
+
+        if (!Publisher.prototype.isPrototypeOf(response))
+        {
+            throw new Error("Your feed must return a Publisher object")
+        }
+
+        return response;
     }
 
     /**
@@ -49,7 +58,6 @@ class AbstractFeed {
                 response.setEncoding('utf8');
 
                 response.on('data', (chunk) => {
-                    console.log("GOt Data");
                     chunked += chunk;
                 });
 
