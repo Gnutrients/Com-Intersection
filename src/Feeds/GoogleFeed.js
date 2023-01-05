@@ -1,8 +1,8 @@
-const AbstractFeed = require('./AbstractFeed');
+import AbstractFeed from "./AbstractFeed.js";
 
 class GoogleFeed extends AbstractFeed {
     constructor() {
-        super("www.google.com");
+        super({ host : "www.google.com" });
     }
 
     parse_response(data) {
@@ -10,4 +10,4 @@ class GoogleFeed extends AbstractFeed {
     }
 }
 
-module.exports = new GoogleFeed();
+export default new GoogleFeed();
