@@ -10,15 +10,12 @@ class Publisher {
      * @param {object} options Configuration object for this Publisher
      */
     constructor(articles, options = {}) {
-        this.options = Object.assign(
-            options,
-            {
-                title : "Article List",
-                link  : "",
-                description : "Object Containing Articles",
-                language : 'en'
-            }
-        )
+        this.options = Object.assign({
+            title: "Publisher",
+            link: "",
+            description: "Object Containing Articles",
+            language: 'en'
+        }, options)
 
         if (!Array.prototype.isPrototypeOf(articles)) 
         {
@@ -44,6 +41,7 @@ class Publisher {
     is_valid_article_list(articles)
     {
         return articles.reduce((is_valid, article) => {
+            // This must be the first condition
             if (! is_valid) 
             {
                 return 0;
