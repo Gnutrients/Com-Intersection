@@ -1,20 +1,121 @@
+:root {
+    --communism-red: #DD0000;
+    --site-text-color: #282726;
+    --site-background-color: white;
+}
+
 body {
-    padding: 2em;
-    background: #f7eae5;
-    color: #282726;
+    background: var(--site-background-color); /**#f7eae5;*/
+    padding: .75em;
+    color: var(--site-text-color);
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 20px;
+    font-size: 18px;
 }
 
-
-@media screen and (min-width: 992px) {
-    .publisher-articles {
-        padding-left: 8em;
-        padding-right: 8em;
-    }
+/* Styles for the container that our publisher cards are in */
+.publisher-cards {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-top: 1em;
 }
 
+/* Styles for the individual card tile */
+.publisher-card {
+    background: none;
+    box-sizing: border-box;
+    flex: 1;
+    margin-bottom: 1em;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+}
+
+/* This allows us to put the "link chain" font awesome icon next to the title on the top of the card */
 .publisher-card-title,
 .publisher-article-title {
     display: inline-block;
 }
+
+/* Container for the actual data display of the publisher card */
+.publisher-card-inner {
+    background: var(--site-background-color);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    max-height: 350px;
+    padding: 0 1em 0 1em;
+    height: 100%;
+}
+
+/* Container holding individual articles */
+.publisher-articles {
+    height: 100%;
+    margin-bottom: 1em;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+/* Individual "Article"  */
+.publisher-article {
+    position: relative;
+    transition: transform .25s ease-out;
+}
+
+.publisher-article:hover {
+    transform: translateX(10px);
+}
+
+.publisher-article:hover .publisher-article-link {
+    padding-left: .25em;
+}
+
+.publisher-article::after {
+    content: ' ';
+    position: absolute;
+    display: block;
+    /* Because our translate is 10px */
+    left: -10px;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: var(--communism-red);
+    z-index: -1;
+}
+
+/* The Anchor element within the article */
+.publisher-article-link {
+    background: var(--site-background-color);
+    display: block;
+    overflow: hidden;
+    padding: .5em 0 .5em 0;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    color: var(--site-text-color);
+}
+
+.publisher-article-link:visited {
+    color: var(--communism-red);
+}
+
+@media screen and (min-width: 992px) {
+    body {
+        padding: 2em;
+    }
+
+    .publisher-cards {
+        flex-direction: row;
+    }
+
+    .publisher-card {
+        width: unset;
+        flex: 1 1 33.3%;
+        padding-right: .5em;
+    }
+    
+    .publisher-card:last-child {
+        flex-grow: 0;
+    }
+}
+
