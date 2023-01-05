@@ -11,6 +11,8 @@ import { XMLParser } from "fast-xml-parser"
  * RSS.
  */
 class RssFeed extends AbstractFeed {
+    use_name_for_title = false
+
     constructor(name, options = {}) {
         super(name, options)
     }
@@ -32,7 +34,7 @@ class RssFeed extends AbstractFeed {
             description: parsed.rss.channel.description,
             language: parsed.rss.channel.language || "en",
             link: parsed.rss.channel.link,
-            title: parsed.rss.channel.title,
+            title: (this.use_name_for_title) ? this.name : parsed.rss.channel.title,
         })
     }
 }
