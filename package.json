@@ -12,6 +12,7 @@
     "aggregator",
     "news"
   ],
+  "type": "module",
   "author": "Spraynard",
   "license": "MIT",
   "dependencies": {
