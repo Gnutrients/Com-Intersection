@@ -5,6 +5,9 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Communist Content Aggregator</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="/css/normalize.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/helpers.css">
 </head>
 <body>
     <h1>Communist Content Aggregator</h1>
@@ -15,11 +18,23 @@
             <!-- publisher Cards here -->
             <% publishers.forEach((publisher) => { %>
                 <div class="publisher-card">
-                    <h4 class="publisher-card-title"><%=publisher.options.title%></h4>
-                    <p class="publisher-card-description"><%=publisher.options.description%></p> 
+                    <h3 class="publisher-card-title"><%-publisher.options.title%></h4>
+                    <p class="publisher-card-description"><%-publisher.options.description%></p> 
                     <a href="<%=publisher.options.link%>">Visit Publisher</a>
-                    <div class="publisher-articles">
-                    </div>
+                    <% if (publisher.articles.length) { %>
+                        <div class="publisher-articles">
+                        <% publisher.articles.forEach((article)=> { %>
+                            <article class="publisher-article">
+                                <h3 class="publisher-article-title"><%=article.title%></h5>
+                                <a href="<%=article.link%>" class="publisher-article-link">Read Article</a>
+                                <div class="publisher-article-text">
+                                    <div class="publisher-article-teaser-text"><%-article.teaser_text%><span class="teaser-text-ellipsis">...</span></div>
+                                    <div class="publisher-article-body hidden"><%-article.body%></div>
+                                </div>
+                            </article>
+                            <% }) %>
+                        </div>
+                    <% } %>
                 </div>
             <% }) %>
             <!-- End Feed Cards-->
