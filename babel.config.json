@@ -1,0 +1,9 @@
+// Thank you 
+// https://stackoverflow.com/questions/58613492/how-to-resolve-cannot-use-import-statement-outside-a-module-in-jest
+// and
+// https://stackoverflow.com/a/70957937
+{ 
+    "presets": [
+        "@babel/preset-env"
+    ]
+}
