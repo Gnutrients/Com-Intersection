@@ -7,7 +7,7 @@ import RedSailsFeed from "./src/Feeds/RedSailsFeed.js"
 import WorkersWorldFeed from "./src/Feeds/WorkersWorldFeed.js"
 
 const app = express()
-const port = 80
+const port = process.env.PORT || 4001;
 
 app.use(express.static('public'))
 
