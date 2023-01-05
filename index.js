@@ -8,6 +8,8 @@ import WorkersWorldFeed from "./src/Feeds/WorkersWorldFeed.js"
 const app = express()
 const port = 80
 
+app.use(express.static('public'))
+
 app.set('view engine', 'ejs')
 
 app.get('/', (req, res) => {
