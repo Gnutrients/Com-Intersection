@@ -11,7 +11,10 @@ class AbstractFeed {
     constructor(options = {}) {
 
         this.#OPTIONS = Object.assign(options, {
-            method : "GET"
+            method : "GET",
+            headers : {
+                "User-Agent": "communist-content-aggregator/" + process.env.npm_package_version
+            }
         });
 
         if (!this.#OPTIONS.host)
@@ -46,12 +49,17 @@ class AbstractFeed {
                 response.setEncoding('utf8');
 
                 response.on('data', (chunk) => {
+                    console.log("GOt Data");
                     chunked += chunk;
                 });
 
                 response.on('end', () => {
                     resolve(chunked);
                 });
+
+                response.on('error', (e) => {
+                    console.log(e)
+                })
             }).on('error', (e) => {
                 reject(`problem with request: ${e.message}`);
             }).end();
