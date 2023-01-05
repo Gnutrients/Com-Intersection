@@ -1,14 +1,22 @@
-const http = require('node:http');
+import http from "node:http";
 
 class AbstractFeed {
     URL = null;
+    #OPTIONS = null;
 
-    constructor(URL) {
-        this.URL = URL;
+    /**
+     * Constructor
+     * @param {*} options Must have a "host" option, ex. "www.google.com"
+     */
+    constructor(options = {}) {
 
-        if (!this.URL)
+        this.#OPTIONS = Object.assign(options, {
+            method : "GET"
+        });
+
+        if (!this.#OPTIONS.host)
         {
-            throw new Error("A Feed must have a URL defined as a class variable");
+            throw new Error("You must provide the \"host\" option");
         }
 
         if (!this.parse_response)
@@ -28,10 +36,7 @@ class AbstractFeed {
    #make_request()
     {
         return new Promise((resolve, reject) => {
-            http.request({
-                "hostname" : this.URL,
-                "method" : "GET"
-            }, (response) => {
+            http.request(this.#OPTIONS, (response) => {
                 let chunked = "";
                 response.setEncoding('utf8');
 
@@ -49,4 +54,4 @@ class AbstractFeed {
     }
 }
 
-module.exports = AbstractFeed;
+export default AbstractFeed;
