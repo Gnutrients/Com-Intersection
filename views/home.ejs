@@ -5,9 +5,15 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Communist Content Aggregator</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+
+    <!-- Stylesheets imported here -->
     <link rel="stylesheet" href="/css/normalize.css">
     <link rel="stylesheet" href="/css/main.css">
     <link rel="stylesheet" href="/css/helpers.css">
+
+    <!-- Third Party Styleheets imported here -->
+    <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/fontawesome.css">
+    <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/solid.css">
 </head>
 <body>
     <h1>Communist Content Aggregator</h1>
@@ -18,15 +24,25 @@
             <!-- publisher Cards here -->
             <% publishers.forEach((publisher) => { %>
                 <div class="publisher-card">
-                    <h3 class="publisher-card-title"><%-publisher.options.title%></h4>
+                    <h3 class="publisher-card-title">
+                        <%-publisher.options.title%>
+                    </h3>
+                    <a href="<%=publisher.options.link%>" aria-label="Visit <%=publisher.options.title%>'s website">
+                        <i class="fa fa-link" aria-hidden="true"></i>
+                    </a>
                     <p class="publisher-card-description"><%-publisher.options.description%></p> 
-                    <a href="<%=publisher.options.link%>">Visit Publisher</a>
                     <% if (publisher.articles.length) { %>
                         <div class="publisher-articles">
                         <% publisher.articles.forEach((article)=> { %>
                             <article class="publisher-article">
-                                <h3 class="publisher-article-title"><%=article.title%></h5>
-                                <a href="<%=article.link%>" class="publisher-article-link">Read Article</a>
+                                <h3 class="publisher-article-title"><%=article.title%></h3> 
+                                <a 
+                                    href="<%=article.link%>" 
+                                    class="publisher-article-link" 
+                                    aria-label="Read article on <%=publisher.options.title%>'s website"
+                                >
+                                    <i class="fa fa-link" aria-hidden="true"></i>
+                                </a>
                                 <div class="publisher-article-text">
                                     <div class="publisher-article-teaser-text"><%-article.teaser_text%><span class="teaser-text-ellipsis">...</span></div>
                                     <div class="publisher-article-body hidden"><%-article.body%></div>
