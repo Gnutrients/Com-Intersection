@@ -8,6 +8,23 @@
 </head>
 <body>
     <h1>Communist Content Aggregator</h1>
+    <h2>Publishers</h2>
+    <%- include("publishers-available-block", { publishers_available : publishers_available }); %>
+    <% if (publishers.length) { %>     
+        <div class="publisher-cards">
+            <!-- publisher Cards here -->
+            <% publishers.forEach((publisher) => { %>
+                <div class="publisher-card">
+                    <h4 class="publisher-card-title"><%=publisher.options.title%></h4>
+                    <p class="publisher-card-description"><%=publisher.options.description%></p> 
+                    <a href="<%=publisher.options.link%>">Visit Publisher</a>
+                    <div class="publisher-articles">
+                    </div>
+                </div>
+            <% }) %>
+            <!-- End Feed Cards-->
+        </div>
+    <% } %>
 </body>
 <footer>
 </footer>
