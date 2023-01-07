@@ -4,14 +4,13 @@ import AbstractFeed from "./AbstractFeed.js";
 import { XMLParser } from "fast-xml-parser"
 
 /**
- * Feed that can be extended for RSS feeds.
+ * Feed that can be extended for RSS feeds. The name of the feed will be the title that shows up on the website.
  * 
  * Because RSS is structured in a certain way we can be fairly ensured that,
  * if given a valid rss file, we can get similar data from everywhere that implements
  * RSS.
  */
-class RssFeed extends AbstractFeed {
-    use_name_for_title = false
+class RssFeed extends AbstractFeed {    
 
     constructor(name, options = {}) {
         super(name, options)
@@ -34,7 +33,7 @@ class RssFeed extends AbstractFeed {
             description: parsed.rss.channel.description,
             language: parsed.rss.channel.language || "en",
             link: parsed.rss.channel.link,
-            title: (this.use_name_for_title) ? this.name : parsed.rss.channel.title,
+            title: this.name
         })
     }
 }
