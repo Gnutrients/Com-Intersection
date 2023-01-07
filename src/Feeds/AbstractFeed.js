@@ -49,14 +49,18 @@ class AbstractFeed {
      */
     async obtain_feed_data()
     {
-        const response = this.parse_response(await this.#make_request(this.#OPTIONS));
+        try {
+            const response = this.parse_response(await this.#make_request(this.#OPTIONS));
+            
+            if (!Publisher.prototype.isPrototypeOf(response)) {
+                throw new Error("Your feed must return a Publisher object")
+            }
 
-        if (!Publisher.prototype.isPrototypeOf(response))
-        {
-            throw new Error("Your feed must return a Publisher object")
+            return response
+        } catch(error) {
+            console.error(error);
+            return null;
         }
-
-        return response
     }
 
     /**
