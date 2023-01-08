@@ -19,9 +19,9 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res, next) => {
     const feeds = [
         FightBackNewsFeed,
-        RedSailsFeed,
         WorkersWorldFeed,
         CubanMinistryOfJusticeFeed,
+        RedSailsFeed,
         LiberationNewsFeed,
         CommunistPartyUSAFeed,
         WorldSocialistWebSiteFeed
@@ -44,5 +44,5 @@ app.get('/', (req, res, next) => {
 });
 
 app.listen(port, () => {
-    console.log(`=== Communist Content App === Listening on port ${port}`);
+    console.log(`=== Server listening on port ${port} ===`);
 })
