@@ -1,6 +1,7 @@
 import express from "express"
 
 // Importing our feeds
+import BlackAgendaReportFeed from "./src/Feeds/BlackAgendaReportFeed.js"
 import CommunistPartyUSAFeed from "./src/Feeds/CommunistPartyUSAFeed.js"
 import CubanMinistryOfJusticeFeed from "./src/Feeds/CubanMinistryOfJusticeFeed.js"
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
@@ -20,6 +21,7 @@ app.get('/', (req, res, next) => {
     const feeds = [
         FightBackNewsFeed,
         WorkersWorldFeed,
+        BlackAgendaReportFeed,
         CubanMinistryOfJusticeFeed,
         RedSailsFeed,
         LiberationNewsFeed,
