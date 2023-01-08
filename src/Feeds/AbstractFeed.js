@@ -3,7 +3,7 @@ import Publisher from "../Publisher.js"
 
 class AbstractFeed {
     URL = null
-    #OPTIONS = null
+    OPTIONS = null
     name = null
     debug = false
 
@@ -13,14 +13,14 @@ class AbstractFeed {
      */
     constructor(name, options = {}) {
         this.name = name
-        this.#OPTIONS = Object.assign({
+        this.OPTIONS = Object.assign({
             method: "GET",
             headers: {
                 "User-Agent": "communist-content-aggregator/" + process.env.npm_package_version
             },
         }, options)
 
-        if (!this.#OPTIONS.host)
+        if (!this.OPTIONS.host)
         {
             throw new Error("You must provide the \"host\" option")
         }
@@ -50,7 +50,7 @@ class AbstractFeed {
     async obtain_feed_data()
     {
         try {
-            const response = this.parse_response(await this.#make_request(this.#OPTIONS));
+            const response = this.parse_response(await this.#make_request(this.OPTIONS));
             
             if (!Publisher.prototype.isPrototypeOf(response)) {
                 throw new Error("Your feed must return a Publisher object")
