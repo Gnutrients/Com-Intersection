@@ -1,7 +1,7 @@
 {
-  "name": "communist-content-aggregator",
+  "name": "communist-intersection",
   "version": "1.0.0",
-  "description": "Aggregator for content, curated for communists",
+  "description": "Content aggregator with an anti-imperialist, communist friendly viewpoint",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
