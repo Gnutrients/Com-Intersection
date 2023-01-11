@@ -16,7 +16,9 @@ class AbstractFeed {
         this.OPTIONS = Object.assign({
             method: "GET",
             headers: {
-                "User-Agent": "communist-content-aggregator/" + process.env.npm_package_version
+                // This is here to provide a little signal that our project is obtaining this information
+                // May want to provide a hash?
+                "User-Agent": "comintersectiondotnet/" + process.env.npm_package_version
             },
         }, options)
 
