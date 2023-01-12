@@ -1,4 +1,4 @@
-import RssFeed from "./RssFeed.js"
+import RssFeed from "./Base/RssFeed.js"
 
 /**
  * Feed aggregator service for Workers World

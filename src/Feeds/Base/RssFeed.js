@@ -1,10 +1,12 @@
-import Article from "../Article.js";
-import Publisher from "../Publisher.js";
+import Article from "../../Article.js";
+import Publisher from "../../Publisher.js";
 import AbstractFeed from "./AbstractFeed.js";
 import { XMLParser } from "fast-xml-parser"
 
 /**
- * Feed that can be extended for RSS feeds. The name of the feed will be the title that shows up on the website.
+ * RSS specific feed implementation.
+ * 
+ * The name of the feed will be the title that shows up on the website.
  * 
  * Because RSS is structured in a certain way we can be fairly ensured that,
  * if given a valid rss file, we can get similar data from everywhere that implements

@@ -1,6 +1,16 @@
 import https from "node:https";
-import Publisher from "../Publisher.js"
+import Publisher from "../../Publisher.js"
 
+/**
+ * Base feed that all other feeds extend off of
+ * 
+ * Concrete feeds extending off of this class must implement the method 
+ * "parse_response(data)", and that method must return a Publisher object
+ * 
+ * This class is primarily used as a data fetcher for information from a website.
+ * How the developer interacts with that information with `parse_response` is none
+ * of this class' business
+ */
 class AbstractFeed {
     URL = null
     OPTIONS = null
@@ -9,7 +19,7 @@ class AbstractFeed {
 
     /**
      * Constructor
-     * @param {*} options Must have a "host" option, ex. "www.google.com"
+     * @param {object} options Must have a "host" option, ex. "www.google.com"
      */
     constructor(name, options = {}) {
         this.name = name
@@ -39,7 +49,8 @@ class AbstractFeed {
     }
 
     /**
-     * Returns a tag name specific to the feed implementation
+     * Used to create a key based on the name of the feed
+     * 
      * @returns {string} A tag name of the feed
      */
     get_tag_name() {
@@ -47,7 +58,11 @@ class AbstractFeed {
     }
 
     /**
-     * Main public class used to initiate feed data collection procedures
+     * Public facing method for this class that gives an interface to requesting and obtaining data
+     * for the feed
+     * 
+     * @throws {Error}
+     * @returns {Promise}
      */
     async obtain_feed_data()
     {
@@ -66,7 +81,7 @@ class AbstractFeed {
     }
 
     /**
-     * Main request making function of a Feed.
+     * Each Feed will use this method to make a request with the options given.
      *
      * @returns {Promise} Resolves with data from the request. Rejects if there is an issue with the request
      */

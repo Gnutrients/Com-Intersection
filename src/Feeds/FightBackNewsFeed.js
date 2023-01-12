@@ -1,4 +1,4 @@
-import RssFeed from "./RssFeed.js";
+import RssFeed from "./Base/RssFeed.js";
 /**
  * News feed for Fight Back! News
  */
