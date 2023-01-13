@@ -24,11 +24,11 @@ app.get('/', (req, res, next) => {
         BlackAllianceForPeaceNewsletterFeed,
         BlackAgendaReportFeed,
         CommunistPartyUSAFeed,
+        TheCradleFeed,
         CubanMinistryOfJusticeFeed,
         FightBackNewsFeed,
         LiberationNewsFeed,
         RedSailsFeed,
-        TheCradleFeed,
         WorkersWorldFeed,
         WorldSocialistWebSiteFeed
     ]
