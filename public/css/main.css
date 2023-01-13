@@ -89,12 +89,15 @@ body {
 .publisher-article-link {
     background: var(--site-background-color);
     display: block;
-    overflow: hidden;
     padding: .5em 0 .5em 0;
     text-decoration: none;
-    text-overflow: ellipsis;
-    white-space: nowrap;
     color: var(--site-text-color);
+}
+
+.publisher-article-link article {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .publisher-article-link:visited {
