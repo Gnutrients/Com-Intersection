@@ -99,6 +99,13 @@ body {
     color: var(--communism-red);
 }
 
+/* For Tooltips */
+.style-comintersection.opentip-container .opentip {
+    color: var(--site-text-color);
+    font-size: 0.90em;
+}
+
+
 @media screen and (min-width: 992px) {
     body {
         padding: 2em;
