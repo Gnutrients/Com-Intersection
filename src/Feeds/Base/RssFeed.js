@@ -6,13 +6,16 @@ import { XMLParser } from "fast-xml-parser"
 /**
  * RSS specific feed implementation.
  * 
- * The name of the feed will be the title that shows up on the website.
+ * The name of the feed will be the title of the Publisher card that shows up on the website.
+ * 
+ * Developers can override LINK class parameter to link to the feed
  * 
  * Because RSS is structured in a certain way we can be fairly ensured that,
  * if given a valid rss file, we can get similar data from everywhere that implements
  * RSS.
  */
 class RssFeed extends AbstractFeed {    
+    LINK = null
 
     constructor(name, options = {}) {
         super(name, options)
@@ -34,7 +37,7 @@ class RssFeed extends AbstractFeed {
         return new Publisher(articles, {
             description: parsed.rss.channel.description,
             language: parsed.rss.channel.language || "en",
-            link: this.OPTIONS.host,
+            link: this.LINK ?? this.OPTIONS.host,
             title: this.name
         })
     }
