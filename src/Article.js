@@ -31,7 +31,7 @@ class Article {
     }
 
     get_date() {
-        return isNaN(this.date) ? "" : `${this.date.getFullYear()}-${this.months[this.date.getMonth()]}-${this.date.getDay()}`
+        return isNaN(this.date) ? "" : `${this.date.getFullYear()}-${this.months[this.date.getMonth()]}-${this.date.getDate()}`
     }
 
     create_teaser_text(text) {
