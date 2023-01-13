@@ -54,12 +54,14 @@ body {
     margin-bottom: 1em;
     overflow-x: hidden;
     overflow-y: auto;
+    padding: 0;
 }
 
 /* Individual "Article"  */
 .publisher-article {
     position: relative;
     transition: transform .25s ease-out;
+    list-style: none;
 }
 
 .publisher-article:hover {
