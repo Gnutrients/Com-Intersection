@@ -1,5 +1,6 @@
 class Article {
     teaser_text_length = 280;
+    months = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12"];
     /**
      * This class contains information about a single Article
      * 
@@ -23,10 +24,14 @@ class Article {
 
         if (!Date.prototype.isPrototypeOf(this.date))
         {
-            this.date = new Date(this.date)
+            this.date = new Date(this.date);
         }
 
         this.teaser_text = this.create_teaser_text(body)
+    }
+
+    get_date() {
+        return isNaN(this.date) ? "" : `${this.date.getFullYear()}-${this.months[this.date.getMonth()]}-${this.date.getDay()}`
     }
 
     create_teaser_text(text) {
