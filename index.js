@@ -8,6 +8,7 @@ import CubanMinistryOfJusticeFeed from "./src/Feeds/CubanMinistryOfJusticeFeed.j
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
 import LiberationNewsFeed from "./src/Feeds/LiberationNewsFeed.js"
 import RedSailsFeed from "./src/Feeds/RedSailsFeed.js"
+import TheCradleFeed from "./src/Feeds/TheCradleFeed.js"
 import WorkersWorldFeed from "./src/Feeds/WorkersWorldFeed.js"
 import WorldSocialistWebSiteFeed from "./src/Feeds/WorldSocialistWebSiteFeed.js"
 
@@ -21,13 +22,14 @@ app.set('view engine', 'ejs')
 app.get('/', (req, res, next) => {
     const feeds = [
         BlackAllianceForPeaceNewsletterFeed,
-        FightBackNewsFeed,
-        WorkersWorldFeed,
         BlackAgendaReportFeed,
-        CubanMinistryOfJusticeFeed,
-        RedSailsFeed,
-        LiberationNewsFeed,
         CommunistPartyUSAFeed,
+        CubanMinistryOfJusticeFeed,
+        FightBackNewsFeed,
+        LiberationNewsFeed,
+        RedSailsFeed,
+        TheCradleFeed,
+        WorkersWorldFeed,
         WorldSocialistWebSiteFeed
     ]
 
