@@ -15,6 +15,9 @@
     <!-- Third Party Styleheets imported here -->
     <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/fontawesome.css">
     <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/solid.css">
+
+    <!-- Opentip for Tooltips -->
+    <link rel="stylesheet" href="/css/opentip.css">
 </head>
 <body>
     <h1>Communist Intersection</h1>
@@ -40,14 +43,15 @@
                         <% if (publisher.articles.length) { %>
                             <div class="publisher-articles">
                             <% publisher.articles.forEach((article)=> { %>
-                                <article class="publisher-article" aria-label="<%=article.title%>">
+                                <%  var tooltip_html = "<p>" + article.title + "</p><small><p>" + article.get_date() + "</p></small>" %>
+                                <article class="publisher-article" aria-label="<%=article.title%>" data-ot="<%=tooltip_html%>" data-ot-style="ComIntersectionStyle">
                                     <a 
                                         aria-label="Read article on <%=publisher.options.title%>'s website"
                                         class="publisher-article-link" 
                                         href="<%=article.link%>"
                                         target="_blank"
                                     >
-                                        <%=article.title%>
+                                        <%-article.title%>
                                     </a>
                                     <div class="publisher-article-text">
                                         <!-- <div class="publisher-article-teaser-text"><%-article.teaser_text%><span class="teaser-text-ellipsis">...</span></div> -->
@@ -63,6 +67,8 @@
             <!-- End Feed Cards-->
         </div>
     <% } %>
+    <script src="/js/opentip/opentip-2.4.6.js"></script>
+    <script src="/js/opentip/comintersection_opentip_config.js"></script>
 </body>
 <footer>
     <p>This is an open source website. You can visit <a target="_blank" href="https://github.com/Gnutrients/Com-Intersection/issues">this link</a> to work on it or suggest new feeds</p>
