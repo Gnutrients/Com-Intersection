@@ -64,14 +64,6 @@ body {
     list-style: none;
 }
 
-.publisher-article:hover {
-    transform: translateX(10px);
-}
-
-.publisher-article:hover .publisher-article-link {
-    padding-left: .25em;
-}
-
 .publisher-article::after {
     content: ' ';
     position: absolute;
@@ -94,17 +86,15 @@ body {
     color: var(--site-text-color);
 }
 
-.publisher-article-link article {
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-
 .publisher-article-link:visited {
     color: var(--communism-red);
 }
 
 /* For Tooltips */
+.style-comintersection.opentip-container {
+    display: none;
+}
+
 .style-comintersection.opentip-container .opentip {
     color: var(--site-text-color);
     font-size: 0.90em;
@@ -114,6 +104,18 @@ body {
 @media screen and (min-width: 992px) {
     body {
         padding: 2em;
+    }
+
+    .style-comintersection.opentip-container {
+        display: block;
+    }
+
+    .publisher-article:hover {
+        transform: translateX(10px);
+    }
+
+    .publisher-article:hover .publisher-article-link {
+        padding-left: .25em;
     }
 
     .publisher-cards {
@@ -128,6 +130,12 @@ body {
     
     .publisher-card:last-child {
         flex-grow: 0;
+    }
+
+    .publisher-article-link article {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
     }
 }
 
