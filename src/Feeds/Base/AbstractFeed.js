@@ -5,10 +5,10 @@ import Publisher from "../../Publisher.js"
  * Base feed that all other feeds extend off of
  * 
  * Concrete feeds extending off of this class must implement the method 
- * "parse_response(data)", and that method must return a Publisher object
+ * "handle_response(data)", and that method must return a Publisher object
  * 
  * This class is primarily used as a data fetcher for information from a website.
- * How the developer interacts with that information with `parse_response` is none
+ * How the developer interacts with that information with `handle_response` is none
  * of this class' business
  */
 class AbstractFeed {
@@ -37,9 +37,9 @@ class AbstractFeed {
             throw new Error("You must provide the \"host\" option")
         }
 
-        if (!this.parse_response)
+        if (!this.handle_response)
         {
-            throw new Error("Feeds must implement the parse_response(data) method")
+            throw new Error("Feeds must implement the handle_response(data) method")
         }
 
         if (!this.name)
@@ -67,7 +67,9 @@ class AbstractFeed {
     async obtain_feed_data()
     {
         try {
-            const response = this.parse_response(await this.#make_request(this.OPTIONS));
+            const response = this.handle_response(
+                await this.#make_request(this.OPTIONS)
+            );
             
             if (!Publisher.prototype.isPrototypeOf(response)) {
                 throw new Error("Your feed must return a Publisher object")

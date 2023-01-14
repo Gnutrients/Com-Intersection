@@ -21,7 +21,7 @@ class RssFeed extends AbstractFeed {
         super(name, options)
     }
 
-    parse_response(data) {
+    handle_response(data) {
         const parser = new XMLParser();
         const parsed = parser.parse(data);
 

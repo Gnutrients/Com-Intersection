@@ -5,7 +5,7 @@ class GoogleFeed extends AbstractFeed {
         super("Google Feed", { host : "www.google.com" });
     }
 
-    parse_response(data) {
+    handle_response(data) {
         return data;
     }
 }
