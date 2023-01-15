@@ -25,7 +25,7 @@ class RssFeed extends AbstractFeed {
         const parser = new XMLParser();
         const parsed = parser.parse(data);
 
-        const articles = parsed.rss.channel.item.map((value, index) => {
+        const articles = parsed.rss.channel.item.map((value) => {
             return new Article(
                 value.title,
                 value.description,
