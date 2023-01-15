@@ -67,8 +67,8 @@ class AbstractFeed {
     async obtain_feed_data()
     {
         try {
-            const response = this.handle_response(
-                await this.#make_request(this.OPTIONS)
+            const response = await this.handle_response(
+                await this._make_request(this.OPTIONS)
             );
             
             if (!Publisher.prototype.isPrototypeOf(response)) {
@@ -87,7 +87,7 @@ class AbstractFeed {
      *
      * @returns {Promise} Resolves with data from the request. Rejects if there is an issue with the request
      */
-   #make_request(options)
+   _make_request(options)
     {
         return new Promise((resolve, reject) => {
             https.request(options, (response) => {
