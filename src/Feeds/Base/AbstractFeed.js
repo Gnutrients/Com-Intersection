@@ -13,26 +13,35 @@ import Publisher from "../../Publisher.js"
  */
 class AbstractFeed {
     URL = null
-    OPTIONS = null
+    HTTP_OPTIONS = null
     name = null
     debug = false
 
+    // Social Links
+    twitter_link = null
+    facebook_link = null
+    instagram_link = null
+    youtube_link = null
+    telegram_link = null
+
     /**
      * Constructor
-     * @param {object} options Must have a "host" option, ex. "www.google.com"
+     * @param {object} http_options HTTP specific options for the 
+     * @param {object} options      Options specific to the class
      */
-    constructor(name, options = {}) {
+    constructor(name, http_options = {}) {
         this.name = name
-        this.OPTIONS = Object.assign({
+        this.HTTP_OPTIONS = Object.assign({
             method: "GET",
             headers: {
                 // This is here to provide a little signal that our project is obtaining this information
                 // May want to provide a hash?
                 "User-Agent": "comintersectiondotnet/" + process.env.npm_package_version
             },
-        }, options)
+        }, http_options)
+        
 
-        if (!this.OPTIONS.host)
+        if (!this.HTTP_OPTIONS.host)
         {
             throw new Error("You must provide the \"host\" option")
         }
@@ -67,11 +76,19 @@ class AbstractFeed {
     async obtain_feed_data()
     {
         try {
-            const response = this.parse_response(await this.#make_request(this.OPTIONS));
+            /** @var {Publisher} response */
+            const response = this.parse_response(await this.#make_request(this.HTTP_OPTIONS));
             
             if (!Publisher.prototype.isPrototypeOf(response)) {
                 throw new Error("Your feed must return a Publisher object")
             }
+
+            // Here we add social media information
+            response.facebook_link = this.facebook_link
+            response.twitter_link = this.twitter_link
+            response.instagram_link = this.instagram_link
+            response.youtube_link = this.youtube_link
+            response.telegram_link = this.telegram_link
 
             return response
         } catch(error) {
