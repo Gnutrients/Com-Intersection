@@ -13,9 +13,10 @@
     <link rel="stylesheet" href="/css/helpers.css">
 
     <!-- Third Party Styleheets imported here -->
-    <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/fontawesome.css">
-    <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/solid.css">
-
+    <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/fontawesome.min.css">
+    <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/solid.min.css">
+    <link rel="stylesheet" href="/third-party/fontawesome-6.2.1/css/brands.min.css">
+    
     <!-- Opentip for Tooltips -->
     <link rel="stylesheet" href="/css/opentip.css">
 </head>
@@ -37,7 +38,24 @@
                                 target="_blank"
                             >
                                 <i class="fa fa-link" aria-hidden="true"></i>
-                            </a>                        
+                            </a>
+                            <ul class="publisher-socials" aria-label="<%=publisher.options.title%> social media links">
+                                <% if (publisher.facebook_link) { %>
+                                    <li><a aria-label="<%=publisher.options.title%> facebook" target="_blank" href="<%=publisher.facebook_link%>"><i class="fa-brands fa-facebook"></i></a></li>
+                                <% } %>                      
+                                <% if (publisher.twitter_link) { %>
+                                    <li><a aria-label="<%=publisher.options.title%> twitter" target="_blank" href="<%=publisher.twitter_link%>"><i class="fa-brands fa-twitter"></i></a></li>
+                                <% } %>
+                                <% if (publisher.instagram_link) { %>
+                                    <li><a aria-label="<%=publisher.options.title%> instagram" target="_blank" href="<%=publisher.instagram_link%>"><i class="fa-brands fa-instagram"></i></a></li>
+                                <% } %>
+                                <% if (publisher.youtube_link) { %>
+                                    <li><a aria-label="<%=publisher.options.title%> youtube" target="_blank" href="<%=publisher.youtube_link%>"><i class="fa-brands fa-youtube"></i></a></li>
+                                <% } %>
+                                <% if (publisher.telegram_link) { %>
+                                    <li><a aria-label="<%=publisher.options.title%> telegram" target="_blank" href="<%=publisher.telegram_link%>"><i class="fa-brands fa-telegram"></i></a></li>
+                                <% } %>
+                            </ul>
                         </div>
                         <!-- <p class="publisher-card-description"><%-publisher.options.description%></p>  -->
                         <% if (publisher.articles.length) { %>
