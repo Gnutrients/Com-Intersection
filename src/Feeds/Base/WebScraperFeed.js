@@ -20,8 +20,7 @@ class WebScraperFeed extends AbstractFeed
     }
 
     _make_request(options) {
-        return super(options)
-                .then(data => this._load_html(data));
+        return super(options).then(this._load_html);
     }
 }
 
