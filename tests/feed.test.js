@@ -1,5 +1,6 @@
 
 import AbstractFeed from "../src/Feeds/AbstractFeed";
+import RssFeed from "../src/Feeds/Base/RssFeed";
 import Publisher from "../src/Publisher";
 
 class TestFeed extends AbstractFeed {
@@ -9,8 +10,16 @@ class TestFeed extends AbstractFeed {
         })
     }
 
-    parse_response(data) {
+    handle_response(data) {
         return new Publisher([])
+    }
+}
+
+class TestRssFeed extends RssFeed {
+    constructor() {
+        super("Test Feed", {
+            host : "google.com"
+        })
     }
 }
 
