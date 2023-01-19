@@ -37,7 +37,7 @@ class RssFeed extends AbstractFeed {
         return new Publisher(articles, {
             description: parsed.rss.channel.description,
             language: parsed.rss.channel.language || "en",
-            link: this.LINK ?? this.OPTIONS.host,
+            link: this.LINK ?? this.HTTP_OPTIONS.host,
             title: this.name
         })
     }

@@ -31,6 +31,23 @@ body {
     width: 100%;
 }
 
+/* Social Icons */
+.publisher-socials {
+    margin-bottom: .5em;
+    list-style: none;
+    padding: 0;
+}
+
+.publisher-socials li {
+    display: inline-block;
+}
+
+.publisher-socials a {
+    text-decoration: none;
+    color: var(--site-text-color);
+    margin-right: 1em;
+}
+
 /* This allows us to put the "link chain" font awesome icon next to the title on the top of the card */
 .publisher-card-title,
 .publisher-article-title {

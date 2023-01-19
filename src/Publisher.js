@@ -1,6 +1,12 @@
 import Article from "./Article.js";
 
 class Publisher {
+    facebook_link = null
+    twitter_link = null
+    instagram_link = null
+    youtube_link = null
+    telegram_link = null
+    
     /**
      * This object contains information about a singular Publisher.
      * 

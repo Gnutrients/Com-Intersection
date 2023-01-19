@@ -6,6 +6,7 @@ import BlackAllianceForPeaceNewsletterFeed from "./src/Feeds/BlackAllianceForPea
 import CommunistPartyUSAFeed from "./src/Feeds/CommunistPartyUSAFeed.js"
 import CubanMinistryOfJusticeFeed from "./src/Feeds/CubanMinistryOfJusticeFeed.js"
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
+import GranmaFeed from "./src/Feeds/GranmaFeed.js"
 import LiberationNewsFeed from "./src/Feeds/LiberationNewsFeed.js"
 import RedSailsFeed from "./src/Feeds/RedSailsFeed.js"
 import TheCradleFeed from "./src/Feeds/TheCradleFeed.js"
@@ -27,6 +28,7 @@ app.get('/', (req, res, next) => {
         TheCradleFeed,
         CubanMinistryOfJusticeFeed,
         FightBackNewsFeed,
+        GranmaFeed,
         LiberationNewsFeed,
         RedSailsFeed,
         WorkersWorldFeed,
