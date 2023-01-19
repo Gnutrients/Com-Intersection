@@ -1,12 +1,7 @@
 import Article from "./Article.js";
+import SiteContentMixin from "./Feeds/Base/SiteContentMixin.js";
 
-class Publisher {
-    facebook_link = null
-    twitter_link = null
-    instagram_link = null
-    youtube_link = null
-    telegram_link = null
-    
+class Publisher extends SiteContentMixin {   
     /**
      * This object contains information about a singular Publisher.
      * 
@@ -16,6 +11,7 @@ class Publisher {
      * @param {object} options Configuration object for this Publisher
      */
     constructor(articles, options = {}) {
+        super()
         this.options = Object.assign({
             title: "Publisher",
             link: "",

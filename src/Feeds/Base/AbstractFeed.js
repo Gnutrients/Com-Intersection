@@ -1,5 +1,6 @@
 import https from "node:https";
 import Publisher from "../../Publisher.js"
+import SiteContentMixin from "./SiteContentMixin.js";
 
 /**
  * Base feed that all other feeds extend off of
@@ -11,18 +12,11 @@ import Publisher from "../../Publisher.js"
  * How the developer interacts with that information with `parse_response` is none
  * of this class' business
  */
-class AbstractFeed {
+class AbstractFeed extends SiteContentMixin {
     URL = null
     HTTP_OPTIONS = null
     name = null
     debug = false
-
-    // Social Links
-    twitter_link = null
-    facebook_link = null
-    instagram_link = null
-    youtube_link = null
-    telegram_link = null
 
     /**
      * Constructor
@@ -30,6 +24,7 @@ class AbstractFeed {
      * @param {object} options      Options specific to the class
      */
     constructor(name, http_options = {}) {
+        super()
         this.name = name
         this.HTTP_OPTIONS = Object.assign({
             method: "GET",
