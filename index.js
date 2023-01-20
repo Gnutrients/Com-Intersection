@@ -3,13 +3,17 @@ import express from "express"
 // Importing our feeds
 import BlackAgendaReportFeed from "./src/Feeds/BlackAgendaReportFeed.js"
 import BlackAllianceForPeaceNewsletterFeed from "./src/Feeds/BlackAllianceForPeaceNewsletterFeed.js"
+import BreakthroughNewsFeed from "./src/Feeds/BreakthroughNewsFeed.js"
 import CommunistPartyUSAFeed from "./src/Feeds/CommunistPartyUSAFeed.js"
 import CubanMinistryOfJusticeFeed from "./src/Feeds/CubanMinistryOfJusticeFeed.js"
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
 import GranmaFeed from "./src/Feeds/GranmaFeed.js"
 import KawsachunNewsFeed from "./src/Feeds/KawsachunNewsFeed.js"
 import LiberationNewsFeed from "./src/Feeds/LiberationNewsFeed.js"
+import MintPressNewsFeed from "./src/Feeds/MintPressNewsFeed.js"
 import RedSailsFeed from "./src/Feeds/RedSailsFeed.js"
+import RedSparkFeed from "./src/Feeds/RedSparkFeed.js"
+import ShadowproofFeed from "./src/Feeds/ShadowproofFeed.js"
 import TheCradleFeed from "./src/Feeds/TheCradleFeed.js"
 import WorkersWorldFeed from "./src/Feeds/WorkersWorldFeed.js"
 import WorldSocialistWebSiteFeed from "./src/Feeds/WorldSocialistWebSiteFeed.js"
@@ -25,6 +29,7 @@ app.get('/', (req, res, next) => {
     const feeds = [
         BlackAllianceForPeaceNewsletterFeed,
         BlackAgendaReportFeed,
+        BreakthroughNewsFeed,
         CommunistPartyUSAFeed,
         TheCradleFeed,
         CubanMinistryOfJusticeFeed,
@@ -32,7 +37,10 @@ app.get('/', (req, res, next) => {
         GranmaFeed,
         KawsachunNewsFeed,
         LiberationNewsFeed,
+        MintPressNewsFeed,
         RedSailsFeed,
+        RedSparkFeed,
+        ShadowproofFeed,
         WorkersWorldFeed,
         WorldSocialistWebSiteFeed
     ]
