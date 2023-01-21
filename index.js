@@ -4,6 +4,7 @@ import express from "express"
 import BlackAgendaReportFeed from "./src/Feeds/BlackAgendaReportFeed.js"
 import BlackAllianceForPeaceNewsletterFeed from "./src/Feeds/BlackAllianceForPeaceNewsletterFeed.js"
 import BreakthroughNewsFeed from "./src/Feeds/BreakthroughNewsFeed.js"
+import CommunistPartyOfSwazilandFeed from "./src/Feeds/CommunistPartyOfSwazilandFeed.js"
 import CommunistPartyUSAFeed from "./src/Feeds/CommunistPartyUSAFeed.js"
 import CubanMinistryOfJusticeFeed from "./src/Feeds/CubanMinistryOfJusticeFeed.js"
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
@@ -30,6 +31,7 @@ app.get('/', (req, res, next) => {
         BlackAllianceForPeaceNewsletterFeed,
         BlackAgendaReportFeed,
         BreakthroughNewsFeed,
+        CommunistPartyOfSwazilandFeed,
         CommunistPartyUSAFeed,
         TheCradleFeed,
         CubanMinistryOfJusticeFeed,
