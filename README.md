@@ -4,6 +4,28 @@ This project was created because there is not an aggregation website dedicated t
 
 There is even the possibility that, in using this site, one may see faults within the capitalist system; a system that holds us all back from achieving a future free from oppression
 
+## Getting Started
+
+All you need is Node for this project. So to get started run the following commands
+
+```
+git clone [repo]
+cd [repo root]
+npm install
+PORT=8080 npm start
+```
+
+After running these commands you should be able to visit localhost:8080 in your browser.
+
+If you don't want Node on your computer and have docker, you can run `quickstart_docker.sh` to run a shell script that will take you into a docker image with this code mounted in the `/home/node/app/` folder. So, you can then do the following commands when in the docker container
+
+```
+cd /home/node/app
+PORT=80 npm start
+```
+
+Please note that the `PORT` value here is necessary as the docker container only exposes its port 80 to the public.
+
 ## How to Add a Feed
 
 All feed classes in this project are located in the `/src/Feeds` folder. This folder also has a `Base` folder, which holds all of our base elements that we extend off to make a concrete feed!
@@ -41,3 +63,11 @@ class ExampleRssFeed extends RssFeed {
 
 export default new ExampleRssFeed()
 ```
+
+## Made With
+
+* [Node.js](https://nodejs.org/en/)
+* [Express.js](https://expressjs.com/)
+* [EJS](https://ejs.co)
+* [fast-xml-parser](https://github.com/NaturalIntelligence/fast-xml-parser)
+* [Jest](https://jestjs.io)
