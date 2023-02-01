@@ -8,6 +8,7 @@ import CommunistPartyOfSwazilandFeed from "./src/Feeds/CommunistPartyOfSwaziland
 import CommunistPartyUSAFeed from "./src/Feeds/CommunistPartyUSAFeed.js"
 import CubanMinistryOfJusticeFeed from "./src/Feeds/CubanMinistryOfJusticeFeed.js"
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
+import GeopoliticalEconomyReportFeed from "./src/Feeds/GeopoliticalEconomyReportFeed.js"
 import GranmaFeed from "./src/Feeds/GranmaFeed.js"
 import KawsachunNewsFeed from "./src/Feeds/KawsachunNewsFeed.js"
 import LiberationNewsFeed from "./src/Feeds/LiberationNewsFeed.js"
@@ -37,6 +38,7 @@ app.get('/', (req, res, next) => {
         CubanMinistryOfJusticeFeed,
         FightBackNewsFeed,
         GranmaFeed,
+        GeopoliticalEconomyReportFeed,
         KawsachunNewsFeed,
         LiberationNewsFeed,
         MintPressNewsFeed,
