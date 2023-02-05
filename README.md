@@ -26,6 +26,13 @@ PORT=80 npm start
 
 Please note that the `PORT` value here is necessary as the docker container only exposes its port 80 to the public.
 
+## Configuring The Development Environment
+
+The application currently pays attention to some *environment variables*. They are listed below:
+
+* `PORT` - Tells the application to listed to the specific port that is supplied on the machine it is running off.
+* `USE_DATASTORE` - Indicates if you want to use the application DataStore to cache requests. If you supply a `USE_DATASTORE=0` value to the application then it does not store data, each request is fresh.
+
 ## How to Add a Feed
 
 All feed classes in this project are located in the `/src/Feeds` folder. This folder also has a `Base` folder, which holds all of our base elements that we extend off to make a concrete feed!
