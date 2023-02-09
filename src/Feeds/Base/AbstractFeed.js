@@ -1,6 +1,8 @@
 import https from "node:https";
+import FeedDataStore from "../../DataStore/FeedDataStore.js";
 import Publisher from "../../Publisher.js"
 import SiteContentMixin from "./SiteContentMixin.js";
+import { USE_DATASTORE } from "../../constants.js";
 
 /**
  * Base feed that all other feeds extend off of
@@ -15,6 +17,8 @@ import SiteContentMixin from "./SiteContentMixin.js";
 class AbstractFeed extends SiteContentMixin {
     URL = null
     HTTP_OPTIONS = null
+    /** @var {FeedDataStore} */
+    #data_store = new FeedDataStore();
     name = null
     debug = false
 
@@ -71,8 +75,21 @@ class AbstractFeed extends SiteContentMixin {
     async obtain_feed_data()
     {
         try {
+            let request_data = null;
+            
+            if (USE_DATASTORE)
+            {
+                request_data = this.#data_store.get();
+            }
+
+            if (!request_data)
+            {
+                request_data = await this.#make_request(this.HTTP_OPTIONS);
+                this.#data_store.put(request_data);
+            }
+
             /** @var {Publisher} response */
-            const response = this.parse_response(await this.#make_request(this.HTTP_OPTIONS));
+            const response = this.parse_response(request_data);
             
             if (!Publisher.prototype.isPrototypeOf(response)) {
                 throw new Error("Your feed must return a Publisher object")
