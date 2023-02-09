@@ -2,6 +2,7 @@ import https from "node:https";
 import FeedDataStore from "../../DataStore/FeedDataStore.js";
 import Publisher from "../../Publisher.js"
 import SiteContentMixin from "./SiteContentMixin.js";
+import { USE_DATASTORE } from "../../constants.js";
 
 /**
  * Base feed that all other feeds extend off of
@@ -74,7 +75,12 @@ class AbstractFeed extends SiteContentMixin {
     async obtain_feed_data()
     {
         try {
-            let request_data = this.#data_store.get();
+            let request_data = null;
+            
+            if (USE_DATASTORE)
+            {
+                request_data = this.#data_store.get();
+            }
 
             if (!request_data)
             {
