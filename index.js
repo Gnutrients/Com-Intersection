@@ -17,6 +17,7 @@ import RedSailsFeed from "./src/Feeds/RedSailsFeed.js"
 import RedSparkFeed from "./src/Feeds/RedSparkFeed.js"
 import ShadowproofFeed from "./src/Feeds/ShadowproofFeed.js"
 import TheCradleFeed from "./src/Feeds/TheCradleFeed.js"
+import TheGrayzoneFeed from "./src/Feeds/TheGrayzoneFeed.js"
 import WorkersWorldFeed from "./src/Feeds/WorkersWorldFeed.js"
 import WorldSocialistWebSiteFeed from "./src/Feeds/WorldSocialistWebSiteFeed.js"
 
@@ -38,6 +39,7 @@ app.get('/', (req, res, next) => {
         CubanMinistryOfJusticeFeed,
         FightBackNewsFeed,
         GranmaFeed,
+        TheGrayzoneFeed,
         GeopoliticalEconomyReportFeed,
         KawsachunNewsFeed,
         LiberationNewsFeed,
