@@ -6,6 +6,7 @@ import BlackAllianceForPeaceNewsletterFeed from "./src/Feeds/BlackAllianceForPea
 import BreakthroughNewsFeed from "./src/Feeds/BreakthroughNewsFeed.js"
 import CommunistPartyOfSwazilandFeed from "./src/Feeds/CommunistPartyOfSwazilandFeed.js"
 import CommunistPartyUSAFeed from "./src/Feeds/CommunistPartyUSAFeed.js"
+import CovertActionMagazineFeed from "./src/Feeds/CovertActionMagazineFeed.js"
 import CubanMinistryOfJusticeFeed from "./src/Feeds/CubanMinistryOfJusticeFeed.js"
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
 import GeopoliticalEconomyReportFeed from "./src/Feeds/GeopoliticalEconomyReportFeed.js"
@@ -18,6 +19,7 @@ import RedSparkFeed from "./src/Feeds/RedSparkFeed.js"
 import ShadowproofFeed from "./src/Feeds/ShadowproofFeed.js"
 import TheCradleFeed from "./src/Feeds/TheCradleFeed.js"
 import TheGrayzoneFeed from "./src/Feeds/TheGrayzoneFeed.js"
+import UnicornRiotFeed from "./src/Feeds/UnicornRiotFeed.js"
 import WorkersWorldFeed from "./src/Feeds/WorkersWorldFeed.js"
 import WorldSocialistWebSiteFeed from "./src/Feeds/WorldSocialistWebSiteFeed.js"
 
@@ -35,6 +37,7 @@ app.get('/', (req, res, next) => {
         BreakthroughNewsFeed,
         CommunistPartyOfSwazilandFeed,
         CommunistPartyUSAFeed,
+        CovertActionMagazineFeed,
         TheCradleFeed,
         CubanMinistryOfJusticeFeed,
         FightBackNewsFeed,
@@ -47,6 +50,7 @@ app.get('/', (req, res, next) => {
         RedSailsFeed,
         RedSparkFeed,
         ShadowproofFeed,
+        UnicornRiotFeed,
         WorkersWorldFeed,
         WorldSocialistWebSiteFeed
     ]
