@@ -10,6 +10,7 @@ import CovertActionMagazineFeed from "./src/Feeds/CovertActionMagazineFeed.js"
 import CubanMinistryOfJusticeFeed from "./src/Feeds/CubanMinistryOfJusticeFeed.js"
 import FightBackNewsFeed from "./src/Feeds/FightBackNewsFeed.js"
 import GeopoliticalEconomyReportFeed from "./src/Feeds/GeopoliticalEconomyReportFeed.js"
+import GingerRiverReviewFeed from "./src/Feeds/GingerRiverReviewFeed.js"
 import GranmaFeed from "./src/Feeds/GranmaFeed.js"
 import KawsachunNewsFeed from "./src/Feeds/KawsachunNewsFeed.js"
 import LiberationNewsFeed from "./src/Feeds/LiberationNewsFeed.js"
@@ -41,6 +42,7 @@ app.get('/', (req, res, next) => {
         TheCradleFeed,
         CubanMinistryOfJusticeFeed,
         FightBackNewsFeed,
+        GingerRiverReviewFeed,
         GranmaFeed,
         TheGrayzoneFeed,
         GeopoliticalEconomyReportFeed,
